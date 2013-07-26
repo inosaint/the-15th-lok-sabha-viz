@@ -65,3 +65,24 @@
 				bottom: 240px;
 				left: -80px;
 		  }
+
+		  .markers {
+				width:5px;
+				height:5px;
+				-moz-border-radius: 100px;
+				-webkit-border-radius: 100px;
+				border-radius: 100px;  
+				/* width and height can be anything, as long as they're equal */
+			}
+
+			.bjp{
+				background-color:#ff7f0e;
+			}
+
+			.cong{
+				background-color:#1f77b4;	
+			}
+			
+			.jds{
+				background-color:#2ca02c;	
+			}
