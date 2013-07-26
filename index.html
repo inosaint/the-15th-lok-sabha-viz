@@ -24,7 +24,7 @@
       
     </style>
   </head>
-  <body>
+  <body onload="movePosition()">
     <div class="wrapper">
       <header>
         <h1 class="header">The 15th Lok Sabha Visualization Project</h1>
@@ -50,7 +50,7 @@
       <p>Primary Dataset: <strong><a name="full-dataset-for-family-politics" class="anchor" href="http://www.theindiasite.com/973-2/">Full dataset for Family Politics</a></strong> &amp; <strong><a name="prs-mp-track-dataset" class="anchor" href="http://www.prsindia.org/index.php?name=mptracklok">PRS’s MP Track Dataset</a></strong></p>
 
 
-      <h1>MP's of Karnataka</h1>
+      <h1 id="uponLoad">MP's of Karnataka</h1>
 
         <div class="filtering" style="float:left;">
             <div style="float:left;">
@@ -366,17 +366,24 @@ function forced(){
                       });
 
 
-}
-    </script>
-      </section>
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-      </footer>
+        //select all
 
-          <script type="text/javascript">
 
         d3.select("#select-party")
                       .on("change", function() {
+
+                        if(document.getElementById('select-party').checked == false){
+                          //console.log(document.getElementById('select-origin').checked);
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes;
+                            }).style("display", this.checked ? null : "none");
+                          }
+                          else {
+                            svg.selectAll("circle").style("display", this.checked ? null : "none");
+                          }
+                          
+
+
                           document.getElementById('bjp').checked = !document.getElementById('bjp').checked;
                           document.getElementById('cong').checked = !document.getElementById('cong').checked;
                           document.getElementById('jds').checked = !document.getElementById('jds').checked;
@@ -385,12 +392,36 @@ function forced(){
 
          d3.select("#select-gender")
                       .on("change", function() {
+
+                        if(document.getElementById('select-gender').checked == false){
+                          //console.log(document.getElementById('select-origin').checked);
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes;
+                            }).style("display", this.checked ? null : "none");
+                          }
+                          else {
+                            svg.selectAll("circle").style("display", this.checked ? null : "none");
+                          }
+                          
+
                           document.getElementById('male').checked = !document.getElementById('male').checked;
                           document.getElementById('female').checked = !document.getElementById('female').checked;
                       });
 
          d3.select("#select-origin")
                       .on("change", function() {
+
+                        if(document.getElementById('select-origin').checked == false){
+                          //console.log(document.getElementById('select-origin').checked);
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes;
+                            }).style("display", this.checked ? null : "none");
+                          }
+                          else {
+                            svg.selectAll("circle").style("display", this.checked ? null : "none");
+                          }
+                          
+
                           document.getElementById('student').checked = !document.getElementById('student').checked;
                           document.getElementById('no-significant').checked = !document.getElementById('no-significant').checked;
                           document.getElementById('family-son').checked = !document.getElementById('family-son').checked;
@@ -403,7 +434,18 @@ function forced(){
                            document.getElementById('business').checked = !document.getElementById('business').checked;                 
                       });
 
-      </script>
+
+
+}
+    </script>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+
+          <script type="text/javascript">
+          function movePosition (){window.location.hash="uponLoad";}
+          </script>
 
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
