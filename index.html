@@ -254,7 +254,7 @@ function forced(){
                                   
               });
 
-        d3.select("#jds")
+      d3.select("#jds")
               .on("change", function() {
 
                   svg.selectAll("circle").filter(function(d,i) { 
@@ -384,16 +384,20 @@ function forced(){
                           svg.selectAll("circle").filter(function(d,i) { 
                               return dataset.nodes;
                             }).style("display", this.checked ? null : "none");
+                            document.getElementById('bjp').checked = false;  
+                            document.getElementById('cong').checked = false;
+                            document.getElementById('jds').checked = false;
                           }
                           else {
                             svg.selectAll("circle").style("display", this.checked ? null : "none");
+                            document.getElementById('bjp').checked = true;
+                            document.getElementById('cong').checked = true;
+                            document.getElementById('jds').checked = true;
                           }
                           
 
 
-                          document.getElementById('bjp').checked = !document.getElementById('bjp').checked;
-                          document.getElementById('cong').checked = !document.getElementById('cong').checked;
-                          document.getElementById('jds').checked = !document.getElementById('jds').checked;
+                          
                                           
                       });
 
@@ -405,14 +409,18 @@ function forced(){
                           svg.selectAll("circle").filter(function(d,i) { 
                               return dataset.nodes;
                             }).style("display", this.checked ? null : "none");
+                          document.getElementById('male').checked = false;
+                          document.getElementById('female').checked = false;
                           }
                           else {
                             svg.selectAll("circle").style("display", this.checked ? null : "none");
+                            document.getElementById('male').checked = true;
+                            document.getElementById('female').checked = true;
                           }
                           
-
+/*
                           document.getElementById('male').checked = !document.getElementById('male').checked;
-                          document.getElementById('female').checked = !document.getElementById('female').checked;
+                          document.getElementById('female').checked = !document.getElementById('female').checked;*/
                       });
 
          d3.select("#select-origin")
@@ -423,12 +431,32 @@ function forced(){
                           svg.selectAll("circle").filter(function(d,i) { 
                               return dataset.nodes;
                             }).style("display", this.checked ? null : "none");
+                            document.getElementById('student').checked = false;
+                            document.getElementById('no-significant').checked = false;
+                            document.getElementById('family-son').checked = false;
+                            document.getElementById('son-business').checked = false;
+                            document.getElementById('family-sis').checked = false;
+                            document.getElementById('inducted').checked = false;
+                            document.getElementById('family-cuz').checked = false;
+                            document.getElementById('rss').checked = false;
+                            document.getElementById('na').checked = false;
+                            document.getElementById('business').checked = false;
                           }
                           else {
                             svg.selectAll("circle").style("display", this.checked ? null : "none");
+                            document.getElementById('student').checked = true;
+                            document.getElementById('no-significant').checked = true;
+                            document.getElementById('family-son').checked = true;
+                            document.getElementById('son-business').checked = true;
+                            document.getElementById('family-sis').checked = true;
+                            document.getElementById('inducted').checked = true;
+                            document.getElementById('family-cuz').checked = true;
+                            document.getElementById('rss').checked = true;
+                            document.getElementById('na').checked = true;
+                            document.getElementById('business').checked = true;
                           }
                           
-
+/*
                           document.getElementById('student').checked = !document.getElementById('student').checked;
                           document.getElementById('no-significant').checked = !document.getElementById('no-significant').checked;
                           document.getElementById('family-son').checked = !document.getElementById('family-son').checked;
@@ -438,7 +466,12 @@ function forced(){
                           document.getElementById('family-cuz').checked = !document.getElementById('family-cuz').checked;
                           document.getElementById('rss').checked = !document.getElementById('rss').checked;
                           document.getElementById('na').checked = !document.getElementById('na').checked;
-                           document.getElementById('business').checked = !document.getElementById('business').checked;                 
+                           document.getElementById('business').checked = !document.getElementById('business').checked;                 */
+
+
+
+
+                                           
                       });
 
 
@@ -451,7 +484,10 @@ function forced(){
       </footer>
 
           <script type="text/javascript">
-          function movePosition (){window.location.hash="uponLoad";}
+          function movePosition (){
+            window.location.hash="uponLoad";
+
+          }
           </script>
 
     </div>
