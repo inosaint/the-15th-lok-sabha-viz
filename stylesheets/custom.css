@@ -1,8 +1,17 @@
 			.lower{
-				position: absolute;
+				/*position: absolute;
 				left:100;
 				bottom:200;
+*/
+			}
 
+			div.filtering{
+				 display: inline;
+				 float: left; 
+			}
+
+			.filtering label{
+				 display: inline;
 			}
 
 			.labelText{
