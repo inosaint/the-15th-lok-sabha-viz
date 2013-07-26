@@ -5,9 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>The 15th Lok Sabha Visualization Project by inosaint</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
+    <link rel="stylesheet" href="./stylesheets/normalize.css" />
+    <link rel="stylesheet" href="./stylesheets/foundation.css" />    
+    <link rel="stylesheet" href="./stylesheets/styles.css">
+    <link rel="stylesheet" href="./stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="./stylesheets/custom.css">
+
+    <script type="text/javascript" src="./javascripts/d3.v3.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./javascripts/jquery.tipsy.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -36,6 +43,138 @@
 <p>The Visualization project is expected in parallel to IID’s 5 week ‘Information Visualization’ module here at the National Institute of Design, R &amp; D campus, Bangalore. </p>
 
 <p>Primary Dataset: Full dataset for Family Politics &amp; PRS’s MP Track Dataset</p>
+
+<h1>MP's of Karnataka</h1>
+
+  <div style="float:left; padding-top:100px;">
+  <input id="one" type="checkbox" name = "party" value="bjp" class="lower" checked="checked">
+  <label for="bjp" class="labelText">BJP</label>
+  <br/><br/>
+  <input id="two" type="checkbox" name = "party" value="cong" class="lower" checked="checked">
+  <label for="cong" class="labelText">Congress</label>
+  <br/><br/>
+  <input id="three" type="checkbox" name = "party" value="jds" class="lower" checked="checked">
+  <label for="jds" class="labelText">JD(S)</label>
+  <br/><br/>
+  </div>
+
+
+<script type="text/javascript">
+
+      //Width and height
+      var w = 500;
+      var h = 300;
+      var padding = 20;
+      //Original data
+      var dataset;
+
+
+
+      d3.json("./data/karnataka.json", function(data) {
+
+          dataset = data;    //Once loaded, copy to dataset.
+          //console.log(data);
+          forced();
+      });
+
+      
+function forced(){
+      
+      //Initialize a default force layout, using the nodes and edges in dataset
+      var force = d3.layout.force()
+                 .nodes(dataset.nodes)
+                 //.links(dataset.edges)
+                 .size([w, h])
+                 .linkDistance([5])
+                 .charge([-20])
+                 .start();
+
+      var colors = d3.scale.category10();
+
+      //Create SVG element
+      var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+      //Create nodes as circles
+      var nodes = svg.selectAll("circle")
+        .data(dataset.nodes)
+        .enter()
+        .append("circle")
+        .attr("r", 10)
+        .attr("class", "node")
+        .attr("style", "float:left")
+        .style("fill", function(d, i) {
+
+          if (dataset.nodes[i]["Political party"] == "Indian National Congress") {
+            return colors(0);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Bharatiya Janata Party") {
+            return colors(1);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Janata Dal (Secular)") {
+            return colors(2);
+          }
+        })
+
+        .call(force.drag)
+        ;
+
+      nodes.append("title")
+          .text(function(d,i) { return dataset.nodes[i]["MP name"]; });
+  
+
+      $(".node").tipsy({ gravity: 's' });
+
+      //Every time the simulation "ticks", this will be called
+      force.on("tick", function() {
+
+      nodes.attr("cx", function(d,i) { return d.x; })
+           .attr("cy", function(d,i) { return d.y; });
+  
+      });
+
+        
+      
+
+        d3.selectAll("#one")
+              .on("change", function() {
+
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Political party"] == "Bharatiya Janata Party";}
+                    ).style("display", this.checked ? null : "none");
+                                  
+              });
+
+      d3.select("#two")
+              .on("change", function() {
+
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Political party"] == "Indian National Congress";}
+                  ).style("display", this.checked ? null : "none");
+                                  
+              });
+
+        d3.select("#three")
+              .on("change", function() {
+
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Political party"] == "Janata Dal (Secular)";
+                    }).style("display", this.checked ? null : "none");
+                                  
+              });
+        d3.select("#four")
+              .on("change", function() {
+
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Political party"] == "Janata Dal (Secular)";
+                    }).style("display", this.checked ? null : "none");
+                                  
+              });
+
+}
+    </script>
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
