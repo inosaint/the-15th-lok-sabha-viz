@@ -40,20 +40,26 @@
 
 
       </header>
-      
+
       <section>
         <h1>
       <a name="the-15th-lok-sabha-visualization-project" class="anchor" href="#the-15th-lok-sabha-visualization-project"><span class="octicon octicon-link"></span></a>The 15th Lok Sabha Visualization Project</h1>
 
       <p>The Visualization project is expected in parallel to IID’s 5 week ‘Information Visualization’ module here at the National Institute of Design, R &amp; D campus, Bangalore. </p>
 
-      <p>Primary Dataset: Full dataset for Family Politics &amp; PRS’s MP Track Dataset</p>
+      <p>Primary Dataset: <strong><a name="full-dataset-for-family-politics" class="anchor" href="http://www.theindiasite.com/973-2/">Full dataset for Family Politics</a></strong> &amp; <strong><a name="prs-mp-track-dataset" class="anchor" href="http://www.prsindia.org/index.php?name=mptracklok">PRS’s MP Track Dataset</a></strong></p>
+
 
       <h1>MP's of Karnataka</h1>
 
         <div class="filtering" style="float:left;">
             <div style="float:left;">
             <h3>Parties</h3>
+              <div>
+              <input id="select-party" type="checkbox" name = "select-party" value="select-party" class="lower" checked="checked">
+              <label for="select-party" class="labelText">Select All</label>
+              </div>
+              
               <div>
               <input id="bjp" type="checkbox" name = "party" value="bjp" class="lower" checked="checked">
               <label for="bjp" class="labelText">BJP</label>
@@ -66,10 +72,16 @@
               <input id="jds" type="checkbox" name = "party" value="jds" class="lower" checked="checked">
               <label for="jds" class="labelText">JD(S)</label>
               </div>
+              
             </div>
 
             <div style="float:left;padding-left:100px;">
             <h3>Gender</h3>
+              <div>
+              <input id="select-gender" type="checkbox" name = "select-gender" value="select-gender" class="lower" checked="checked">
+              <label for="select-gender" class="labelText">Select All</label>
+              </div>
+              
               <div>
               <input id="male" type="checkbox" name = "gender" value="male" class="lower" checked="checked">
               <label for="male" class="labelText">Male</label>
@@ -82,6 +94,11 @@
 
             <div style="float:left;padding-left:100px;">
             <h3>Origin</h3>
+              <div>
+              <input id="select-origin" type="checkbox" name = "select-origin" value="select-origin" class="lower" checked="checked">
+              <label for="select-origin" class="labelText">Select All</label>
+              </div>
+
               <div>
               <input id="student" type="checkbox" name = "origin" value="student" class="lower" checked="checked">
               <label for="student" class="labelText">Student politics</label>
@@ -113,6 +130,10 @@
               <label for="inducted" class="labelText">Inducted</label>
               </div>
               <div>
+              <input id="business" type="checkbox" name = "origin" value="business" class="lower" checked="checked">
+              <label for="business" class="labelText">Business</label>
+              </div>
+              <div>
               <input id="rss" type="checkbox" name = "origin" value="rss" class="lower" checked="checked">
               <label for="rss" class="labelText">RSS</label>
               </div>
@@ -122,6 +143,10 @@
               <label for="na" class="labelText">#N/A</label>
               </div>
             </div>
+
+              <div id="chart">
+                
+              </div>
         </div>
 
 
@@ -236,7 +261,7 @@ function forced(){
               .on("change", function() {
 
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Gender"] == "male";
+                      return dataset.nodes[i]["Gender"] == "Male";
                     }).style("display", this.checked ? null : "none");
                                   
               });
@@ -245,61 +270,97 @@ function forced(){
               .on("change", function() {
 
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Gender"] == "female";
+                      return dataset.nodes[i]["Gender"] == "Female";
                     }).style("display", this.checked ? null : "none");
                                   
               });
          //origin filter     
-         d3.select("#four")
+         d3.select("#student")
                       .on("change", function() {
 
                           svg.selectAll("circle").filter(function(d,i) { 
-                              return dataset.nodes[i]["Background"] == "Janata Dal (Secular)";
+                              return dataset.nodes[i]["Background"] == "Student politics";
                             }).style("display", this.checked ? null : "none");
                                           
                       });
 
-         d3.select("#four")
+         d3.select("#no-significant")
                       .on("change", function() {
 
                           svg.selectAll("circle").filter(function(d,i) { 
-                              return dataset.nodes[i]["Background"] == "Janata Dal (Secular)";
+                              return dataset.nodes[i]["Background"] == "No significant family background";
                             }).style("display", this.checked ? null : "none");
                                           
                       });
 
-         d3.select("#four")
+         d3.select("#son-business")
                       .on("change", function() {
 
                           svg.selectAll("circle").filter(function(d,i) { 
-                              return dataset.nodes[i]["Background"] == "Janata Dal (Secular)";
+                              return dataset.nodes[i]["Background"] == "Family - Son (Business)";
                             }).style("display", this.checked ? null : "none");
                                           
                       });
 
-         d3.select("#four")
+         d3.select("#family-son")
                       .on("change", function() {
 
                           svg.selectAll("circle").filter(function(d,i) { 
-                              return dataset.nodes[i]["Background"] == "Janata Dal (Secular)";
+                              return dataset.nodes[i]["Background"] == "Family - Son";
                             }).style("display", this.checked ? null : "none");
                                           
                       });
 
-         d3.select("#four")
+         d3.select("#family-sis")
                       .on("change", function() {
 
                           svg.selectAll("circle").filter(function(d,i) { 
-                              return dataset.nodes[i]["Background"] == "Janata Dal (Secular)";
+                              return dataset.nodes[i]["Background"] == "Family - Sister";
                             }).style("display", this.checked ? null : "none");
                                           
                       });
+        d3.select("#family-cuz")
+                      .on("change", function() {
+
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "Family - Cousin";
+                            }).style("display", this.checked ? null : "none");
+                                          
+                      });              
+        d3.select("#business")
+                      .on("change", function() {
+
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "Business";
+                            }).style("display", this.checked ? null : "none");
+                                          
+                      });
+
+         d3.select("#inducted")
+                      .on("change", function() {
+
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "Inducted";
+                            }).style("display", this.checked ? null : "none");
+                                          
+                      });
+
+         d3.select("#rss")
+                      .on("change", function() {
+
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "RSS";
+                            }).style("display", this.checked ? null : "none");
+                                          
+                      });
+
+
 
          d3.select("#na")
                       .on("change", function() {
 
                           svg.selectAll("circle").filter(function(d,i) { 
-                              return dataset.nodes[i]["Background"] == "No significant family background";
+                              return dataset.nodes[i]["Background"] == "#N/A";
                             }).style("display", this.checked ? null : "none");
                                           
                       });
@@ -311,6 +372,39 @@ function forced(){
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
+
+          <script type="text/javascript">
+
+        d3.select("#select-party")
+                      .on("change", function() {
+                          document.getElementById('bjp').checked = !document.getElementById('bjp').checked;
+                          document.getElementById('cong').checked = !document.getElementById('cong').checked;
+                          document.getElementById('jds').checked = !document.getElementById('jds').checked;
+                                          
+                      });
+
+         d3.select("#select-gender")
+                      .on("change", function() {
+                          document.getElementById('male').checked = !document.getElementById('male').checked;
+                          document.getElementById('female').checked = !document.getElementById('female').checked;
+                      });
+
+         d3.select("#select-origin")
+                      .on("change", function() {
+                          document.getElementById('student').checked = !document.getElementById('student').checked;
+                          document.getElementById('no-significant').checked = !document.getElementById('no-significant').checked;
+                          document.getElementById('family-son').checked = !document.getElementById('family-son').checked;
+                         document.getElementById('son-business').checked = !document.getElementById('son-business').checked;
+                          document.getElementById('family-sis').checked = !document.getElementById('family-sis').checked;
+                          document.getElementById('inducted').checked = !document.getElementById('inducted').checked;
+                          document.getElementById('family-cuz').checked = !document.getElementById('family-cuz').checked;
+                          document.getElementById('rss').checked = !document.getElementById('rss').checked;
+                          document.getElementById('na').checked = !document.getElementById('na').checked;
+                           document.getElementById('business').checked = !document.getElementById('business').checked;                 
+                      });
+
+      </script>
+
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 		
