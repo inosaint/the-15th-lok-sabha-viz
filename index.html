@@ -159,15 +159,15 @@
 <script type="text/javascript">
 
       //Width and height
-      var w = 500;
-      var h = 300;
+      var w = 800;
+      var h = 600;
       var padding = 20;
       //Original data
       var dataset;
 
 
 
-      d3.json("./data/karnataka.json", function(data) {
+      d3.json("./data/india.json", function(data) {
 
           dataset = data;    //Once loaded, copy to dataset.
           //console.log(data);
@@ -183,7 +183,7 @@ function forced(){
                  //.links(dataset.edges)
                  .size([w, h])
                  .linkDistance([5])
-                 .charge([-20])
+                 .charge([-15])
                  .start();
 
       var colors = d3.scale.category10();
@@ -205,6 +205,7 @@ function forced(){
         .style("fill", function(d, i) {
 
           if (dataset.nodes[i]["Political party"] == "Indian National Congress") {
+            //console.log(colors(0));
             return colors(0);
           }
           else if (dataset.nodes[i]["Political party"] == "Bharatiya Janata Party") {
@@ -212,6 +213,18 @@ function forced(){
           }
           else if (dataset.nodes[i]["Political party"] == "Janata Dal (Secular)") {
             return colors(2);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Samajwadi Party") {
+            return colors(3);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Shiv Sena") {
+            return colors(4);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Independent") {
+            return colors(5);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Janata Dal (United)") {
+            return colors(6);
           }
         })
 
@@ -239,9 +252,16 @@ function forced(){
         d3.selectAll("#bjp")
               .on("change", function() {
 
+//svg.selectAll(".node").data(force.nodes().filter(function(d) { return d.active; }));
+
                   svg.selectAll("circle").filter(function(d,i) { 
                       return dataset.nodes[i]["Political party"] == "Bharatiya Janata Party";}
                     ).style("display", this.checked ? null : "none");
+
+//.data(force.nodes());
+
+                    force.nodes(dataset.nodes).start();
+                    console.log('helo');
                                   
               });
 
@@ -270,6 +290,8 @@ function forced(){
                   svg.selectAll("circle").filter(function(d,i) { 
                       return dataset.nodes[i]["Gender"] == "Male";
                     }).style("display", this.checked ? null : "none");
+
+                  force.nodes(dataset.nodes).start();
                                   
               });
 
@@ -279,6 +301,8 @@ function forced(){
                   svg.selectAll("circle").filter(function(d,i) { 
                       return dataset.nodes[i]["Gender"] == "Female";
                     }).style("display", this.checked ? null : "none");
+
+                  force.nodes(dataset.nodes).start();
                                   
               });
          //origin filter     
@@ -394,10 +418,6 @@ function forced(){
                             document.getElementById('cong').checked = true;
                             document.getElementById('jds').checked = true;
                           }
-                          
-
-
-                          
                                           
                       });
 
