@@ -24,10 +24,9 @@
       
     </style>
   </head>
-  <body onload=""> <!-- movePosition() -->
+  <body onload="movePosition()">
     <div class="wrapper">
       <header>
-
         <h1 class="header">The 15th Lok Sabha Visualization Project</h1>
         <p class="header"> <em>For the people, by the people and of the people</em></p>
 
@@ -52,7 +51,7 @@
       <p><strong>Primary Dataset</strong>: <u><a name="full-dataset-for-family-politics" class="anchor" href="http://www.theindiasite.com/973-2/">Full dataset for Family Politics</a></u> &amp; <u><a name="prs-mp-track-dataset" class="anchor" href="http://www.prsindia.org/index.php?name=mptracklok">PRS’s MP Track Dataset</a></u></p>
 
 
-      <h1 id="uponLoad">MP's of India</h1>
+      <h1 id="uponLoad">MP's of Karnataka</h1>
 
         <div class="filtering" style="float:left;">
             <div style="float:left;">
@@ -150,24 +149,22 @@
               <label for="na" class="labelText">#N/A</label>
               </div>
             </div>
-            <div id="number" style="font-size:36px;"></div>
+
               <div id="chart">
                 
               </div>
-
-              
         </div>
 
 
 <script type="text/javascript">
 
       //Width and height
-      var w = 1020;
-      var h = 960;
+      var w = 800;
+      var h = 600;
       var padding = 20;
       //Original data
       var dataset;
-      var somenodes;
+
 
 
       d3.json("./data/india.json", function(data) {
@@ -183,13 +180,11 @@ function forced(){
       //Initialize a default force layout, using the nodes and edges in dataset
       var force = d3.layout.force()
                  .nodes(dataset.nodes)
-                 //.on("tick", tick)
                  //.links(dataset.edges)
                  .size([w, h])
                  .linkDistance([5])
-                 .charge([-15]);
-
-      force.start();
+                 .charge([-15])
+                 .start();
 
       var colors = d3.scale.category10();
 
@@ -234,7 +229,7 @@ function forced(){
             return colors(6);
           }
         })
-        //.call(force.drag)
+        .call(force.drag)
         ;
 
       nodes.append("title")
@@ -245,352 +240,163 @@ function forced(){
       $(".node").tipsy({ gravity: 's' });
 
       //Every time the simulation "ticks", this will be called
-      force.on("tick", function(e) {
-        //groupi(e);
-      
+      force.on("tick", function() {
+
       nodes.attr("cx", function(d,i) { return d.x; })
            .attr("cy", function(d,i) { return d.y; });
   
       });
 
+        
       
       //party filter
-        d3.select("#bjp")
+        d3.selectAll("#bjp")
               .on("change", function() {
-          
-                if(document.getElementById('bjp').checked == false){
-                 
-                 somenodes = force.nodes().filter(function(d,i) { 
 
-                  return dataset.nodes[i]["Political party"] == "Bharatiya Janata Party";});
+//svg.selectAll(".node").data(force.nodes().filter(function(d) { return d.active; }));
 
-                 svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Political party"] != "Bharatiya Janata Party";}
-                  ).style("display", "none");
+                  /*svg.selectAll(".nodes").data(force.nodes().filter(function(d,i) { 
+                      return dataset.nodes[i]["Political party"] == "Bharatiya Janata Party";}
+                    ));*/
 
-                  force.nodes(somenodes);
 
-                  document.getElementById("number").innerHTML= somenodes.length;
-                  }
+                  //.style("display", this.checked ? null : "none");
 
-           
+//.data(force.nodes());
+
+                /*  nodes.filter(function(d,i) { 
+                      return dataset.nodes[i]["Political party"] == "Bharatiya Janata Party";});
+*/
+                  svg.selectAll("circle").data(force.nodes().filter(function(d,i) { 
+                      return dataset.nodes[i]["Political party"] == "Bharatiya Janata Party";})).enter();
+
+                    console.log(dataset.nodes);
+                                  
               });
 
       d3.select("#cong")
               .on("change", function() {
 
-                force.nodes(dataset.nodes).charge([-15]);
-                svg.selectAll("circle").style("display", "inline");
+                svg.selectAll("circle").data(force.nodes().filter(function(d,i) { 
+                      return dataset.nodes[i]["Political party"] == "Indian National Congress";})).enter();
 
-                 if(document.getElementById('cong').checked == false){
-                 
-                 somenodes = force.nodes().filter(function(d,i) { 
-
-                  return dataset.nodes[i]["Political party"] == "Indian National Congress";});
-
-                 svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Political party"] != "Indian National Congress";}
-                  ).style("display", "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                }
-                  
+                /*  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Political party"] == "Indian National Congress";}
+                  ).style("display", this.checked ? null : "none");*/
+                                  
               });
 
       d3.select("#jds")
               .on("change", function() {
 
-                force.nodes(dataset.nodes);
-                svg.selectAll("circle").style("display", "inline");
+                  svg.selectAll("circle").data(force.nodes().filter(function(d,i) { 
+                      return dataset.nodes[i]["Political party"] == "Janata Dal (Secular)";})).enter();
 
-                 if(document.getElementById('jds').checked == false){
-                 
-                 somenodes = force.nodes().filter(function(d,i) { 
-
-                  return dataset.nodes[i]["Political party"] == "Janata Dal (Secular)";});
-
-                 svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Political party"] != "Janata Dal (Secular)";}
-                  ).style("display", "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                }
-                  
+                 /* svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Political party"] == "Janata Dal (Secular)";
+                    }).style("display", this.checked ? null : "none");*/
+                                  
               });
 
         //gender filter
         d3.select("#male")
               .on("change", function() {
 
-                  force.nodes(dataset.nodes).charge([-15]);
-                  //svg.selectAll("circle").style("display", "inline");
-
-                  if(document.getElementById('male').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Gender"] != "Male";});
-                  
                   svg.selectAll("circle").filter(function(d,i) { 
                       return dataset.nodes[i]["Gender"] == "Male";
-                    }).style("display", "none");
+                    }).style("display", this.checked ? null : "none");
 
-                  force.nodes(somenodes).start();
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                }
-                else
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Gender"] == "Male";
-                    }).style("display", "block");
+                  force.nodes(dataset.nodes).start();
                                   
               });
 
        d3.select("#female")
               .on("change", function() {
 
-                  force.nodes(dataset.nodes).charge([-15]);
-                  //svg.selectAll("circle").style("display", "inline");
-
-                  if(document.getElementById('female').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Gender"] != "Female";});
-                  
                   svg.selectAll("circle").filter(function(d,i) { 
                       return dataset.nodes[i]["Gender"] == "Female";
-                    }).style("display", "none");
+                    }).style("display", this.checked ? null : "none");
 
-                  force.nodes(somenodes).start();
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                }
-                else
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Gender"] == "Female";
-                    }).style("display", "block");
-                          
+                  force.nodes(dataset.nodes).start();
                                   
               });
          //origin filter     
          d3.select("#student")
                       .on("change", function() {
 
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
-                  if(document.getElementById('student').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Student politics";});
-                  
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Student politics";
-                    }).style("display", this.checked ? null : "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                 }                                         
-                  
-                   });
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "Student politics";
+                            }).style("display", this.checked ? null : "none");
+                                          
+                      });
 
          d3.select("#no-significant")
                       .on("change", function() {
-                  
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
 
-                  if(document.getElementById('no-significant').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "No significant family background";});
-                  
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "No significant family background";
-                    }).style("display", this.checked ? null : "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                 }                                         
-
-                
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "No significant family background";
+                            }).style("display", this.checked ? null : "none");
                                           
                       });
 
          d3.select("#son-business")
                       .on("change", function() {
 
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
-                  if(document.getElementById('son-business').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Family - Son (Business)";});
-                  
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Family - Son (Business)";
-                    }).style("display", this.checked ? null : "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                 }                
-
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "Family - Son (Business)";
+                            }).style("display", this.checked ? null : "none");
                                           
                       });
 
          d3.select("#family-son")
                       .on("change", function() {
 
-
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
-                  if(document.getElementById('family-son').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Family - Son";});
-                  
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Family - Son";
-                    }).style("display", this.checked ? null : "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                 }                
-
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "Family - Son";
+                            }).style("display", this.checked ? null : "none");
+                                          
                       });
 
          d3.select("#family-sis")
                       .on("change", function() {
 
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
-                  if(document.getElementById('family-sis').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Family - Sister";});
-                  
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Family - Sister";
-                    }).style("display", this.checked ? null : "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                 }  
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "Family - Sister";
+                            }).style("display", this.checked ? null : "none");
                                           
                       });
-
         d3.select("#family-cuz")
                       .on("change", function() {
 
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
-                  if(document.getElementById('family-cuz').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Family - Cousin";});
-                  
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Family - Cousin";
-                    }).style("display", this.checked ? null : "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                 }
-
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "Family - Cousin";
+                            }).style("display", this.checked ? null : "none");
                                           
-                      });       
-
-
+                      });              
         d3.select("#business")
                       .on("change", function() {
 
-
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
-                  if(document.getElementById('business').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Business";});
-                  
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Business";
-                    }).style("display", this.checked ? null : "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                 }
-                          
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "Business";
+                            }).style("display", this.checked ? null : "none");
+                                          
                       });
 
          d3.select("#inducted")
                       .on("change", function() {
 
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
-                  if(document.getElementById('inducted').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Inducted";});
-                  
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Inducted";
-                    }).style("display", this.checked ? null : "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                 }                         
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "Inducted";
+                            }).style("display", this.checked ? null : "none");
                                           
                       });
 
          d3.select("#rss")
                       .on("change", function() {
 
-                        force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
-                  if(document.getElementById('rss').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "RSS";});
-                  
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "RSS";
-                    }).style("display", this.checked ? null : "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                 }  
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "RSS";
+                            }).style("display", this.checked ? null : "none");
                                           
                       });
 
@@ -599,23 +405,9 @@ function forced(){
          d3.select("#na")
                       .on("change", function() {
 
-                        force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
-                  if(document.getElementById('#na').checked == false){
-                 
-                  somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "#N/A";});
-                  
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "#N/A";
-                    }).style("display", this.checked ? null : "none");
-
-                  force.nodes(somenodes);
-
-                  document.getElementById("number").innerHTML= somenodes.length;
-
-                 }          
+                          svg.selectAll("circle").filter(function(d,i) { 
+                              return dataset.nodes[i]["Background"] == "#N/A";
+                            }).style("display", this.checked ? null : "none");
                                           
                       });
 
@@ -637,7 +429,6 @@ function forced(){
                             document.getElementById('jds').checked = false;
                           }
                           else {
-                            //forced();
                             svg.selectAll("circle").style("display", this.checked ? null : "none");
 
                             document.getElementById('bjp').checked = true;
