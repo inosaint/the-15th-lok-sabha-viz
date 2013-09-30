@@ -54,40 +54,40 @@
 
       <h1 id="uponLoad">MP's of India</h1>
 
-        <div class="filtering" style="float:left;">
+        <div id="filter" class="filtering" style="float:left;">
             <div style="float:left;">
             <h3>Parties</h3>
-              <div>
+              <!-- <div>
               <input id="select-party" type="checkbox" name = "select-party" value="select-party" class="lower" checked="checked">
               <label for="select-party" class="labelText">Select All</label>
-              </div>
+              </div> -->
               
               <div>
-              <input id="bjp" type="checkbox" name = "party" value="bjp" class="lower" checked="checked">
+              <input id="bjp" type="checkbox" value="bjp" class="lower" checked="checked">
               <label for="bjp" class="labelText">BJP</label>
               <span class="markers bjp">&nbsp;&nbsp;  &nbsp;</span>
               </div>
               
               <div>
-              <input id="cong" type="checkbox" name = "party" value="cong" class="lower" checked="checked">
+              <input id="cong" type="checkbox" value="cong" class="lower" checked="checked">
               <label for="cong" class="labelText">Congress</label>
               <span class="markers cong">&nbsp;&nbsp;  &nbsp;</span>
               </div>
 
               <div>
-              <input id="jds" type="checkbox" name = "party" value="jds" class="lower" checked="checked">
+              <input id="jds" type="checkbox" value="jds" class="lower" checked="checked">
               <label for="jds" class="labelText">JD(S)</label>
               <span class="markers jds">&nbsp;&nbsp;  &nbsp;</span>
               </div>
-              
+
             </div>
 
             <div style="float:left;padding-left:90px;">
             <h3>Gender</h3>
-              <div>
+              <!-- <div>
               <input id="select-gender" type="checkbox" name = "select-gender" value="select-gender" class="lower" checked="checked">
               <label for="select-gender" class="labelText">Select All</label>
-              </div>
+              </div> -->
               
               <div>
               <input id="male" type="checkbox" name = "gender" value="male" class="lower" checked="checked">
@@ -101,10 +101,10 @@
 
             <div style="float:left;padding-left:90px;">
             <h3>Origin</h3>
-              <div>
+              <!-- <div>
               <input id="select-origin" type="checkbox" name = "select-origin" value="select-origin" class="lower" checked="checked">
               <label for="select-origin" class="labelText">Select All</label>
-              </div>
+              </div> -->
 
               <div>
               <input id="student" type="checkbox" name = "origin" value="student" class="lower" checked="checked">
@@ -150,11 +150,11 @@
               <label for="na" class="labelText">#N/A</label>
               </div>
             </div>
-            <div id="number" style="font-size:36px;"></div>
+            
               <div id="chart">
                 
               </div>
-
+              <div style="font-size:36px;"><span id="number">554</span> individuals</div>
               
         </div>
 
@@ -187,11 +187,12 @@ function forced(){
                  //.links(dataset.edges)
                  .size([w, h])
                  .linkDistance([5])
-                 .charge([-15]);
+                 .charge([-20]);
 
       force.start();
 
-      var colors = d3.scale.category10();
+      var colors = d3.scale.category20();
+      var colors2 = d3.scale.category20b();
 
       //Create SVG element
       var svg = d3.select("#chart")
@@ -212,27 +213,124 @@ function forced(){
         .style("fill", function(d, i) {
 
           if (dataset.nodes[i]["Political party"] == "Indian National Congress") {
-            console.log(colors(0));
+            //console.log(colors(0));
             return colors(0);
           }
           else if (dataset.nodes[i]["Political party"] == "Bharatiya Janata Party") {
-            return colors(1);
+            return colors(2);
           }
           else if (dataset.nodes[i]["Political party"] == "Janata Dal (Secular)") {
-            return colors(2);
+            return colors(5);
           }
           else if (dataset.nodes[i]["Political party"] == "Samajwadi Party") {
             return colors(3);
           }
           else if (dataset.nodes[i]["Political party"] == "Shiv Sena") {
-            return colors(4);
+            return colors(1);
           }
           else if (dataset.nodes[i]["Political party"] == "Independent") {
-            return colors(5);
+            return colors(4);
           }
           else if (dataset.nodes[i]["Political party"] == "Janata Dal (United)") {
             return colors(6);
           }
+          else if (dataset.nodes[i]["Political party"] == "All India Anna Dravida Munnetra Kazhagam") {
+            return colors(7);
+          }
+          else if (dataset.nodes[i]["Political party"] == "All India Forward Bloc") {
+            return colors(8);
+          }
+          else if (dataset.nodes[i]["Political party"] == "All India Majlis-E-Ittehadul Muslimmen") {
+            return colors(9);
+          }
+          else if (dataset.nodes[i]["Political party"] == "All India Trinamool Congress") {
+            return colors(10);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Asom Gana Parishad") {
+            return colors(11);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Assam United Democratic Front") {
+            return colors(12);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Bahujan Samaj Party") {
+            return colors(13);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Bahujan Vikas Aaghadi") {
+            return colors(14);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Biju Janata Dal") {
+            return colors(15);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Bodoland People's Front") {
+            return colors(16);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Communist Party of India") {
+            return colors(17);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Communist Party of India (Marxist)") {
+            return colors(18);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Dravida Munnetra Kazhagam") {
+            return colors(19);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Haryana Janhit Congress") {
+            return colors2(19);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Jammu and Kashmir National Conference") {
+            return colors2(18);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Jharkhand Mukti Morcha") {
+            return colors2(17);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Jharkhand Vikas Morcha (Prajatantrik)") {
+            return colors2(16);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Kerala Congress (M)") {
+            return colors2(15);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Marumalarchi Dravida Munnetra Kazhagam") {
+            return colors2(14);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Muslim League Kerala State Committee") {
+            return colors2(13);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Nagaland People's Front") {
+            return colors2(12);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Nationalist Congress Party") {
+            return colors2(11);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Rashtriya Janata Dal") {
+            return colors2(10);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Rashtriya Lok Dal") {
+            return colors2(9);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Revolutionary Socialist Party") {
+            return colors2(8);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Shiromani Akali Dal") {
+            return colors2(7);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Sikkim Democratic Front") {
+            return colors2(6);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Swabhimani Paksha") {
+            return colors2(5);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Telangana Rashtra Samithi") {
+            return colors2(4);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Telugu Desam Party") {
+            return colors2(3);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Viduthalai Chiruthaigal Katchi") {
+            return colors2(2);
+          }
+          else if (dataset.nodes[i]["Political party"] == "Yuvajana Sramika Rythu Congress Party") {
+            return colors2(1);
+          }
+
         })
         //.call(force.drag)
         ;
@@ -246,7 +344,6 @@ function forced(){
 
       //Every time the simulation "ticks", this will be called
       force.on("tick", function(e) {
-        //groupi(e);
       
       nodes.attr("cx", function(d,i) { return d.x; })
            .attr("cy", function(d,i) { return d.y; });
@@ -254,83 +351,88 @@ function forced(){
       });
 
       
+      d3.select("#filter")
+      .on("change", function() {
       //party filter
-        d3.select("#bjp")
-              .on("change", function() {
+      console.log('hello');
+
+      /*  d3.select("#bjp")
+              .on("change", function() {*/
           
+                  force.nodes(dataset.nodes).start();
+                  svg.selectAll("circle").style("display", "inline-block");
+
                 if(document.getElementById('bjp').checked == false){
                  
                  somenodes = force.nodes().filter(function(d,i) { 
-
-                  return dataset.nodes[i]["Political party"] == "Bharatiya Janata Party";});
+                  return dataset.nodes[i]["Political party"] != "Bharatiya Janata Party";});
 
                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Political party"] != "Bharatiya Janata Party";}
+                      return dataset.nodes[i]["Political party"] == "Bharatiya Janata Party";}
                   ).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
                   }
 
            
-              });
+          /*    });
 
       d3.select("#cong")
               .on("change", function() {
 
-                force.nodes(dataset.nodes).charge([-15]);
-                svg.selectAll("circle").style("display", "inline");
+                force.nodes(dataset.nodes).start();
+                svg.selectAll("circle").style("display", "inline-block");*/
 
                  if(document.getElementById('cong').checked == false){
                  
                  somenodes = force.nodes().filter(function(d,i) { 
-
-                  return dataset.nodes[i]["Political party"] == "Indian National Congress";});
+                  return dataset.nodes[i]["Political party"] != "Indian National Congress";});
 
                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Political party"] != "Indian National Congress";}
+                      return dataset.nodes[i]["Political party"] == "Indian National Congress";}
                   ).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
                 }
                   
-              });
+          /*    });
 
       d3.select("#jds")
               .on("change", function() {
 
-                force.nodes(dataset.nodes);
-                svg.selectAll("circle").style("display", "inline");
+                force.nodes(dataset.nodes).start();
+                svg.selectAll("circle").style("display", "inline-block");*/
 
                  if(document.getElementById('jds').checked == false){
                  
                  somenodes = force.nodes().filter(function(d,i) { 
-
-                  return dataset.nodes[i]["Political party"] == "Janata Dal (Secular)";});
+                  return dataset.nodes[i]["Political party"] != "Janata Dal (Secular)";});
 
                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Political party"] != "Janata Dal (Secular)";}
+                      return dataset.nodes[i]["Political party"] == "Janata Dal (Secular)";}
                   ).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
                 }
                   
-              });
+/*              });
 
         //gender filter
         d3.select("#male")
               .on("change", function() {
 
-                  force.nodes(dataset.nodes).charge([-15]);
-                  //svg.selectAll("circle").style("display", "inline");
-
+                  //forced();
+                  force.nodes(dataset.nodes).start();
+                  svg.selectAll("circle").style("display", "inline-block");
+*/
                   if(document.getElementById('male').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
@@ -345,19 +447,20 @@ function forced(){
                   document.getElementById("number").innerHTML= somenodes.length;
 
                 }
-                else
-                  svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Gender"] == "Male";
-                    }).style("display", "block");
-                                  
-              });
+                // else{
+                //   force.nodes().gravity(.1).start();           
+                //   svg.selectAll("circle").filter(function(d,i) { 
+                //       return dataset.nodes[i]["Gender"] == "Male";
+                //     }).style("display", "inline-block");
+                // }                  
+/*              });
 
        d3.select("#female")
               .on("change", function() {
-
-                  force.nodes(dataset.nodes).charge([-15]);
-                  //svg.selectAll("circle").style("display", "inline");
-
+                  //forced();
+                  force.nodes(dataset.nodes).start();
+                  svg.selectAll("circle").style("display", "inline-block");
+*/
                   if(document.getElementById('female').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
@@ -371,54 +474,59 @@ function forced(){
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
-                }
+                }/*
                 else
+                {
+                  force.nodes().gravity(.1).start();                  
                   svg.selectAll("circle").filter(function(d,i) { 
                       return dataset.nodes[i]["Gender"] == "Female";
-                    }).style("display", "block");
-                          
+                    })
+                //.style("display", "block")
+                .style("display", "inline-block")
+                ;
+                }          */
                                   
-              });
+ /*             });
          //origin filter     
          d3.select("#student")
                       .on("change", function() {
 
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
+                  force.nodes(dataset.nodes).start();
+                  svg.selectAll("circle").style("display", "inline-block");
+*/
                   if(document.getElementById('student').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Student politics";});
+                  return dataset.nodes[i]["Background"] != "Student politics";});
                   
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Student politics";
-                    }).style("display", this.checked ? null : "none");
+                      return dataset.nodes[i]["Background"] == "Student politics";
+                    }).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
                  }                                         
                   
-                   });
+/*                   });
 
          d3.select("#no-significant")
                       .on("change", function() {
                   
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
+                  force.nodes(dataset.nodes).start();
+                  svg.selectAll("circle").style("display", "inline-block");
+*/
                   if(document.getElementById('no-significant').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "No significant family background";});
+                  return dataset.nodes[i]["Background"] != "No significant family background";});
                   
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "No significant family background";
-                    }).style("display", this.checked ? null : "none");
+                      return dataset.nodes[i]["Background"] == "No significant family background";
+                    }).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
@@ -426,101 +534,101 @@ function forced(){
 
                 
                                           
-                      });
+/*                      });
 
          d3.select("#son-business")
                       .on("change", function() {
 
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
+                  force.nodes(dataset.nodes).start();
+                  svg.selectAll("circle").style("display", "inline-block");
+*/
                   if(document.getElementById('son-business').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Family - Son (Business)";});
+                  return dataset.nodes[i]["Background"] != "Family - Son (Business)";});
                   
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Family - Son (Business)";
-                    }).style("display", this.checked ? null : "none");
+                      return dataset.nodes[i]["Background"] == "Family - Son (Business)";
+                    }).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
                  }                
 
                                           
-                      });
+/*                      });
 
          d3.select("#family-son")
                       .on("change", function() {
 
 
-                  force.nodes(dataset.nodes);
-                  svg.selectAll("circle").style("display", "inline");
-
+                  force.nodes(dataset.nodes).start();
+                  svg.selectAll("circle").style("display", "inline-block");
+*/
                   if(document.getElementById('family-son').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Family - Son";});
+                  return dataset.nodes[i]["Background"] != "Family - Son";});
                   
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Family - Son";
-                    }).style("display", this.checked ? null : "none");
+                      return dataset.nodes[i]["Background"] == "Family - Son";
+                    }).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
                  }                
 
-                      });
+/*                      });
 
          d3.select("#family-sis")
                       .on("change", function() {
 
                   force.nodes(dataset.nodes);
                   svg.selectAll("circle").style("display", "inline");
-
+*/
                   if(document.getElementById('family-sis').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Family - Sister";});
+                  return dataset.nodes[i]["Background"] != "Family - Sister";});
                   
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Family - Sister";
-                    }).style("display", this.checked ? null : "none");
+                      return dataset.nodes[i]["Background"] == "Family - Sister";
+                    }).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
                  }  
                                           
-                      });
+/*                      });
 
         d3.select("#family-cuz")
                       .on("change", function() {
 
                   force.nodes(dataset.nodes);
                   svg.selectAll("circle").style("display", "inline");
-
+*/
                   if(document.getElementById('family-cuz').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Family - Cousin";});
+                  return dataset.nodes[i]["Background"] != "Family - Cousin";});
                   
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Family - Cousin";
-                    }).style("display", this.checked ? null : "none");
+                      return dataset.nodes[i]["Background"] == "Family - Cousin";
+                    }).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
                  }
 
-                                          
+/*                                          
                       });       
 
 
@@ -530,69 +638,69 @@ function forced(){
 
                   force.nodes(dataset.nodes);
                   svg.selectAll("circle").style("display", "inline");
-
+*/
                   if(document.getElementById('business').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Business";});
+                  return dataset.nodes[i]["Background"] != "Business";});
                   
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Business";
-                    }).style("display", this.checked ? null : "none");
+                      return dataset.nodes[i]["Background"] == "Business";
+                    }).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
                  }
                           
-                      });
+/*                      });
 
          d3.select("#inducted")
                       .on("change", function() {
 
                   force.nodes(dataset.nodes);
                   svg.selectAll("circle").style("display", "inline");
-
+*/
                   if(document.getElementById('inducted').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "Inducted";});
+                  return dataset.nodes[i]["Background"] != "Inducted";});
                   
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "Inducted";
-                    }).style("display", this.checked ? null : "none");
+                      return dataset.nodes[i]["Background"] == "Inducted";
+                    }).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
                  }                         
                                           
-                      });
+/*                      });
 
          d3.select("#rss")
                       .on("change", function() {
 
                         force.nodes(dataset.nodes);
                   svg.selectAll("circle").style("display", "inline");
-
+*/
                   if(document.getElementById('rss').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "RSS";});
+                  return dataset.nodes[i]["Background"] != "RSS";});
                   
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "RSS";
-                    }).style("display", this.checked ? null : "none");
+                      return dataset.nodes[i]["Background"] == "RSS";
+                    }).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
                  }  
                                           
-                      });
+/*                      });
 
 
 
@@ -601,24 +709,25 @@ function forced(){
 
                         force.nodes(dataset.nodes);
                   svg.selectAll("circle").style("display", "inline");
-
+*/
                   if(document.getElementById('#na').checked == false){
                  
                   somenodes = force.nodes().filter(function(d,i) { 
-                  return dataset.nodes[i]["Background"] == "#N/A";});
+                  return dataset.nodes[i]["Background"] != "#N/A";});
                   
                   svg.selectAll("circle").filter(function(d,i) { 
-                      return dataset.nodes[i]["Background"] != "#N/A";
-                    }).style("display", this.checked ? null : "none");
+                      return dataset.nodes[i]["Background"] == "#N/A";
+                    }).style("display", "none");
 
-                  force.nodes(somenodes);
+                  force.nodes(somenodes).start();
 
                   document.getElementById("number").innerHTML= somenodes.length;
 
                  }          
                                           
-                      });
+                    //  });
 
+}); // end filter
 
         //select all
 
@@ -737,7 +846,4 @@ function forced(){
           </script>
 
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
-  </body>
-</html>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]--</html>
