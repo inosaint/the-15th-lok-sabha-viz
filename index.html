@@ -214,10 +214,10 @@ function forced(){
 
           if (dataset.nodes[i]["Political party"] == "Indian National Congress") {
             //console.log(colors(0));
-            return colors(0);
+            return '#1f77b4';
           }
           else if (dataset.nodes[i]["Political party"] == "Bharatiya Janata Party") {
-            return colors(2);
+            return '#ff7f0e';
           }
           else if (dataset.nodes[i]["Political party"] == "Janata Dal (Secular)") {
             return colors(5);
@@ -724,7 +724,148 @@ function forced(){
                   document.getElementById("number").innerHTML= somenodes.length;
 
                  }          
-                                          
+                  
+
+                if(document.getElementById('studentpol').checked == false){
+                 
+                  somenodes = force.nodes().filter(function(d,i) { 
+                  return dataset.nodes[i]["Background"] != "Student politics (Lawyer)";});
+                  
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Background"] == "Student politics (Lawyer)";
+                    }).style("display", "none");
+
+                  force.nodes(somenodes).start();
+
+                  document.getElementById("number").innerHTML= somenodes.length;
+
+                 }
+                 if(document.getElementById('royal').checked == false){
+                 
+                  somenodes = force.nodes().filter(function(d,i) { 
+                  return dataset.nodes[i]["Background"] != "Royal Family";});
+                  
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Background"] == "Royal Family";
+                    }).style("display", "none");
+
+                  force.nodes(somenodes).start();
+
+                  document.getElementById("number").innerHTML= somenodes.length;
+
+                 }
+                 if(document.getElementById('trade').checked == false){
+                 
+                  somenodes = force.nodes().filter(function(d,i) { 
+                  return dataset.nodes[i]["Background"] != "Trade Union";});
+                  
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Background"] == "Trade Union";
+                    }).style("display", "none");
+
+                  force.nodes(somenodes).start();
+
+                  document.getElementById("number").innerHTML= somenodes.length;
+
+                 }
+                 if(document.getElementById('nsfbrl').checked == false){
+                 
+                  somenodes = force.nodes().filter(function(d,i) { 
+                  return dataset.nodes[i]["Background"] != "No significant family background (Religious leader)";});
+                  
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Background"] == "No significant family background (Religious leader)";
+                    }).style("display", "none");
+
+                  force.nodes(somenodes).start();
+
+                  document.getElementById("number").innerHTML= somenodes.length;
+
+                 }
+                 if(document.getElementById('nsfbl').checked == false){
+                 
+                  somenodes = force.nodes().filter(function(d,i) { 
+                  return dataset.nodes[i]["Background"] != "No significant family background (Lawyer)";});
+                  
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Background"] == "No significant family background (Lawyer)";
+                    }).style("display", "none");
+
+                  force.nodes(somenodes).start();
+
+                  document.getElementById("number").innerHTML= somenodes.length;
+
+                 }                        
+                 if(document.getElementById('nsfbb').checked == false){
+                 
+                  somenodes = force.nodes().filter(function(d,i) { 
+                  return dataset.nodes[i]["Background"] != "No significant family background (Bureaucrat)";});
+                  
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Background"] == "No significant family background (Bureaucrat)";
+                    }).style("display", "none");
+
+                  force.nodes(somenodes).start();
+
+                  document.getElementById("number").innerHTML= somenodes.length;
+
+                 } 
+                 if(document.getElementById('maoist').checked == false){
+                 
+                  somenodes = force.nodes().filter(function(d,i) { 
+                  return dataset.nodes[i]["Background"] != "Maoist Commander";});
+                  
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Background"] == "Maoist Commander";
+                    }).style("display", "none");
+
+                  force.nodes(somenodes).start();
+
+                  document.getElementById("number").innerHTML= somenodes.length;
+
+                 } 
+                 if(document.getElementById('inductedc').checked == false){
+                 
+                  somenodes = force.nodes().filter(function(d,i) { 
+                  return dataset.nodes[i]["Background"] != "Inducted (Cricketer)";});
+                  
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Background"] == "Inducted (Cricketer)";
+                    }).style("display", "none");
+
+                  force.nodes(somenodes).start();
+
+                  document.getElementById("number").innerHTML= somenodes.length;
+
+                 } 
+                 if(document.getElementById('inducteda').checked == false){
+                 
+                  somenodes = force.nodes().filter(function(d,i) { 
+                  return dataset.nodes[i]["Background"] != "Inducted (Actor)";});
+                  
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Background"] == "Inducted (Actor)";
+                    }).style("display", "none");
+
+                  force.nodes(somenodes).start();
+
+                  document.getElementById("number").innerHTML= somenodes.length;
+
+                 } 
+                 if(document.getElementById('family-wife').checked == false){
+                 
+                  somenodes = force.nodes().filter(function(d,i) { 
+                  return dataset.nodes[i]["Background"] != "Family - Wife";});
+                  
+                  svg.selectAll("circle").filter(function(d,i) { 
+                      return dataset.nodes[i]["Background"] == "Family - Wife";
+                    }).style("display", "none");
+
+                  force.nodes(somenodes).start();
+
+                  document.getElementById("number").innerHTML= somenodes.length;
+
+                 } 
                     //  });
 
 }); // end filter

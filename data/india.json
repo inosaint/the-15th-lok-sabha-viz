@@ -94,7 +94,7 @@
       "Private Member Bills" : 0,
       "Questions" : 4,
       "Attendance" : 0.98,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Abu Hasem Khan Choudhury",
@@ -126,7 +126,7 @@
       "Private Member Bills" : 0,
       "Questions" : 273,
       "Attendance" : 0.63,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Adhi Sankar",
@@ -190,7 +190,7 @@
       "Private Member Bills" : 3,
       "Questions" : 139,
       "Attendance" : 0.81,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Ajay Maken",
@@ -702,7 +702,7 @@
       "Private Member Bills" : 0,
       "Questions" : 194,
       "Attendance" : 0.48,
-      "Background" : "No significant family background "
+      "Background" : "No significant family background"
     },
     {
       "MP name" : "Awale Jaywant Gangaram",
@@ -718,7 +718,7 @@
       "Private Member Bills" : 0,
       "Questions" : 307,
       "Attendance" : 0.91,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Babu Lal Marandi",
@@ -894,7 +894,7 @@
       "Private Member Bills" : 0,
       "Questions" : 33,
       "Attendance" : 0.62,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Bapiraju Kanumuri",
@@ -1054,7 +1054,7 @@
       "Private Member Bills" : 0,
       "Questions" : 326,
       "Attendance" : 0.68,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Bhismashankar, Alias Kushal Tiwari",
@@ -1070,7 +1070,7 @@
       "Private Member Bills" : 0,
       "Questions" : 444,
       "Attendance" : 0.78,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Bhola Singh",
@@ -1326,7 +1326,7 @@
       "Private Member Bills" : 0,
       "Questions" : 0,
       "Attendance" : 0.1,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Chandrakant Bhaurao Khaire",
@@ -1396,8 +1396,8 @@
       "MP name" : "Charles Dias",
       "Nature of membership" : "Nominated",
       "End of term" : "In office",
-      "State" : null,
-      "Constituency" : null,
+      "State" : "" ,
+      "Constituency" : "",
       "Political party" : "Indian National Congress",
       "Gender" : "Male",
       "Educational qualifications" : "Doctorate",
@@ -1422,7 +1422,7 @@
       "Private Member Bills" : 0,
       "Questions" : 242,
       "Attendance" : 0.84,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Chinta Mohan",
@@ -1630,7 +1630,7 @@
       "Private Member Bills" : 0,
       "Questions" : 328,
       "Attendance" : 0.79,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Deepender Singh Hooda",
@@ -1710,7 +1710,7 @@
       "Private Member Bills" : 0,
       "Questions" : 351,
       "Attendance" : 0.78,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Dhananjay Singh",
@@ -1822,7 +1822,7 @@
       "Private Member Bills" : 0,
       "Questions" : 0,
       "Attendance" : 0.25,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Dinesh Chandra Yadav",
@@ -1854,7 +1854,7 @@
       "Private Member Bills" : 0,
       "Questions" : 12,
       "Attendance" : 0.53,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Dinesh Trivedi",
@@ -2094,7 +2094,7 @@
       "Private Member Bills" : 0,
       "Questions" : 352,
       "Attendance" : 0.79,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Gajanan Dharmshi Babar",
@@ -2174,7 +2174,7 @@
       "Private Member Bills" : 0,
       "Questions" : 275,
       "Attendance" : 0.93,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Girija Vyas",
@@ -2254,7 +2254,7 @@
       "Private Member Bills" : 0,
       "Questions" : 122,
       "Attendance" : 0.94,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Govind Prasad Mishra",
@@ -2558,7 +2558,7 @@
       "Private Member Bills" : 0,
       "Questions" : 273,
       "Attendance" : 0.96,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Ijyaraj Singh",
@@ -2686,7 +2686,7 @@
       "Private Member Bills" : 0,
       "Questions" : 265,
       "Attendance" : 0.93,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Jadhav Prataprao Ganpatrao",
@@ -2702,7 +2702,7 @@
       "Private Member Bills" : 0,
       "Questions" : 422,
       "Attendance" : 0.64,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Jagada Nand Singh",
@@ -2910,7 +2910,7 @@
       "Private Member Bills" : 1,
       "Questions" : 434,
       "Attendance" : 0.85,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Jeetendra Singh Bundela",
@@ -3118,7 +3118,7 @@
       "Private Member Bills" : 0,
       "Questions" : 30,
       "Attendance" : 0.74,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "K. Jayasurya Prakash Reddy",
@@ -3134,7 +3134,7 @@
       "Private Member Bills" : 0,
       "Questions" : 499,
       "Attendance" : 0.56,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "K. Murugesan Anandan",
@@ -3342,7 +3342,7 @@
       "Private Member Bills" : 2,
       "Questions" : 332,
       "Attendance" : 0.71,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Kalyan Banerjee",
@@ -3614,7 +3614,7 @@
       "Private Member Bills" : 0,
       "Questions" : 771,
       "Attendance" : 0.75,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Khiladi Lal Bairwa",
@@ -3646,7 +3646,7 @@
       "Private Member Bills" : 0,
       "Questions" : 338,
       "Attendance" : 0.89,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Kirit Premjibhai Solanki",
@@ -3790,7 +3790,7 @@
       "Private Member Bills" : 0,
       "Questions" : 110,
       "Attendance" : 0.48,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Kumbakudi Sudhakaran",
@@ -3854,7 +3854,7 @@
       "Private Member Bills" : 0,
       "Questions" : 238,
       "Attendance" : 0.92,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Lal Ji Tandon",
@@ -3918,7 +3918,7 @@
       "Private Member Bills" : 0,
       "Questions" : 0,
       "Attendance" : 0.75,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Lalubhai Babubhai Patel",
@@ -4174,7 +4174,7 @@
       "Private Member Bills" : 0,
       "Questions" : 756,
       "Attendance" : 0.57,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Mahabal Mishra",
@@ -4318,7 +4318,7 @@
       "Private Member Bills" : 0,
       "Questions" : 6,
       "Attendance" : 0.87,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Mallikarjun Kharge",
@@ -4350,7 +4350,7 @@
       "Private Member Bills" : "N/A",
       "Questions" : "N/A",
       "Attendance" : "N/A",
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Mamata Banerjee",
@@ -4750,7 +4750,7 @@
       "Private Member Bills" : 0,
       "Questions" : 400,
       "Attendance" : 0.71,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Munisamy Thambidurai",
@@ -4814,7 +4814,7 @@
       "Private Member Bills" : 0,
       "Questions" : 835,
       "Attendance" : 0.55,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "N. Peethambara Kurup",
@@ -5198,7 +5198,7 @@
       "Private Member Bills" : 9,
       "Questions" : 308,
       "Attendance" : 0.71,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "P. Balram",
@@ -5214,7 +5214,7 @@
       "Private Member Bills" : 0,
       "Questions" : 429,
       "Attendance" : 0.68,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "P. C. Mohan",
@@ -5262,7 +5262,7 @@
       "Private Member Bills" : 0,
       "Questions" : 396,
       "Attendance" : 0.85,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "P. Karunakaran",
@@ -5342,7 +5342,7 @@
       "Private Member Bills" : 0,
       "Questions" : 359,
       "Attendance" : 0.89,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "P. Viswanathan",
@@ -5454,7 +5454,7 @@
       "Private Member Bills" : 0,
       "Questions" : 198,
       "Attendance" : 0.59,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "Pakauri Lal",
@@ -5582,7 +5582,7 @@
       "Private Member Bills" : 0,
       "Questions" : 96,
       "Attendance" : 0.84,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Prabha Kishore Taviad",
@@ -5662,7 +5662,7 @@
       "Private Member Bills" : "N/A",
       "Questions" : "N/A",
       "Attendance" : "N/A",
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Pradeep Kumar Majhi",
@@ -5678,7 +5678,7 @@
       "Private Member Bills" : 0,
       "Questions" : 974,
       "Attendance" : 0.57,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Pradeep Kumar Singh",
@@ -5854,7 +5854,7 @@
       "Private Member Bills" : 0,
       "Questions" : 231,
       "Attendance" : 0.78,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Premdas Katheria",
@@ -5950,7 +5950,7 @@
       "Private Member Bills" : 0,
       "Questions" : 34,
       "Attendance" : 0.9,
-      "Background" : null
+      "Background" : "#N/A"
     },
     {
       "MP name" : "R. Thamaraiselvan",
@@ -6222,7 +6222,7 @@
       "Private Member Bills" : 0,
       "Questions" : 32,
       "Attendance" : 0.82,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Rajesh Nandini Singh",
@@ -6558,7 +6558,7 @@
       "Private Member Bills" : 1,
       "Questions" : 196,
       "Attendance" : 0.74,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Ramsinhbhai Patalyabhai Rathwa",
@@ -6574,7 +6574,7 @@
       "Private Member Bills" : 0,
       "Questions" : 689,
       "Attendance" : 0.74,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Ranee Narah",
@@ -6766,7 +6766,7 @@
       "Private Member Bills" : 0,
       "Questions" : 746,
       "Attendance" : 0.74,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "S. Alagiri",
@@ -7038,7 +7038,7 @@
       "Private Member Bills" : 0,
       "Questions" : 674,
       "Attendance" : 0.64,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Sameer Magan Bhujbal",
@@ -7246,7 +7246,7 @@
       "Private Member Bills" : 0,
       "Questions" : 9,
       "Attendance" : 0.94,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Saroj Pandey",
@@ -7582,7 +7582,7 @@
       "Private Member Bills" : 0,
       "Questions" : 41,
       "Attendance" : 0.52,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Shripad Yesso Naik",
@@ -7678,7 +7678,7 @@
       "Private Member Bills" : 0,
       "Questions" : 137,
       "Attendance" : 0.41,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Sk. Nurul Islam",
@@ -7742,7 +7742,7 @@
       "Private Member Bills" : 0,
       "Questions" : 0,
       "Attendance" : 0.17,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Somabhai Gandalal Koli Patel",
@@ -7854,7 +7854,7 @@
       "Private Member Bills" : 0,
       "Questions" : 0,
       "Attendance" : 0.62,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Subrata Bakshi",
@@ -7870,7 +7870,7 @@
       "Private Member Bills" : 0,
       "Questions" : 0,
       "Attendance" : 0.37,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Sucharu Ranjan Haldar",
@@ -8030,7 +8030,7 @@
       "Private Member Bills" : 0,
       "Questions" : 324,
       "Attendance" : 0.66,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Suresh Kalmadi",
@@ -8254,7 +8254,7 @@
       "Private Member Bills" : 0,
       "Questions" : 71,
       "Attendance" : 0.63,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Tapas Paul",
@@ -8334,7 +8334,7 @@
       "Private Member Bills" : 0,
       "Questions" : 108,
       "Attendance" : 0.82,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Thangso Baite",
@@ -8430,7 +8430,7 @@
       "Private Member Bills" : 0,
       "Questions" : 180,
       "Attendance" : 0.87,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Uday Pratap Singh",
@@ -8462,7 +8462,7 @@
       "Private Member Bills" : 0,
       "Questions" : 498,
       "Attendance" : 0.76,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Uma Shanker Singh",
@@ -8478,7 +8478,7 @@
       "Private Member Bills" : 0,
       "Questions" : 111,
       "Attendance" : 0.87,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Usha Verma",
@@ -8782,7 +8782,7 @@
       "Private Member Bills" : 0,
       "Questions" : 649,
       "Attendance" : 0.7,
-      "Background" : null
+      "Background" : #N/A
     },
     {
       "MP name" : "Yashodhara Raje Scindia",
